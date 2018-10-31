@@ -280,6 +280,7 @@ void Camera::move_to(float x, float y)
     vec4 centered_coord = buf_dim * 0.5f - vec4(x, y, 0, 0);
 
     // Recompute zoom matrix to discard its internal translation
+    zoom_power_ = 64.f; // zoom in, show pixel value
     float zoom = 1.f / compute_zoom();
     scale_     = mat4::scale(vec4(zoom, zoom, 1.0, 1.0));
 

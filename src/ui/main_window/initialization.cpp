@@ -178,6 +178,15 @@ void MainWindow::initialize_shortcuts()
             SIGNAL(go_to_requested(float, float)),
             this,
             SLOT(go_to_pixel(float, float)));
+    QShortcut* go_to_shortcut2 =
+        new QShortcut(QKeySequence(Qt::CTRL | Qt::Key_G), this);
+    connect(
+        go_to_shortcut2, SIGNAL(activated()), this, SLOT(toggle_go_to_dialog()));
+    connect(go_to_widget_,
+            SIGNAL(go_to_requested(float, float)),
+            this,
+            SLOT(go_to_pixel(float, float)));        
+            
 }
 
 
